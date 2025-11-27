@@ -14,8 +14,8 @@ public class NameController {
     @Autowired
     private NameService nameService;
 
-    @GetMapping("/name/{name}")
-    public ResponseEntity<Boolean> verifyAllowedName(@PathVariable String name){
+    @GetMapping("/name")
+    public ResponseEntity<Boolean> verifyAllowedName(@RequestBody String name){
         boolean isAllowed = nameService.verifyName(name);
 
         return ResponseEntity.ok(isAllowed);
